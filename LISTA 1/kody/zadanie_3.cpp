@@ -4,6 +4,9 @@
 #include <climits>
 using namespace std;
 
+int przypisania = 0;
+int porownania = 0;
+
 void WYPISZ_TABLICE(int A[], int n){
     for (int i = 0; i < n; i++)
         cout << A[i] << " ";
@@ -31,8 +34,11 @@ void HEAPIFY(int A[], int i, int n) {
         largest = r;
     }
 
+    porownania += 2;
+
     if (largest != i) {
         swap(A[i], A[largest]);
+        przypisania += 2;
         HEAPIFY(A, largest, n);
     }
 }
@@ -48,6 +54,7 @@ void HEAP_SORT(int A[], int n) {
 
     for (int i = n - 1; i >= 1; i--) {
         swap(A[0], A[i]);
+        przypisania += 2;
         n--;
         HEAPIFY(A, 0, n);  
     }
@@ -84,8 +91,11 @@ void HEAPIFY_ZMOD(int A[], int i, int n) {
         largest = p;
     }
 
+    porownania += 3;
+
     if (largest != i) {
         swap(A[i], A[largest]);
+        przypisania += 2;
         HEAPIFY_ZMOD(A, largest, n);
     }
 }
@@ -101,6 +111,7 @@ void HEAP_SORT_ZMOD(int A[], int n) {
 
     for (int i = n - 1; i >= 1; i--) {
         swap(A[0], A[i]);
+        przypisania += 2;
         n--;
         HEAPIFY_ZMOD(A, 0, n);
     }
@@ -108,11 +119,19 @@ void HEAP_SORT_ZMOD(int A[], int n) {
 
 
 int main(){
-    int A[] = {3, 2, 5, 1, 7, 4, 6};
+
+    przypisania = 0;
+    porownania = 0;
+
+    int A[] = {5, 1, 4, 2, 8, 6, 3, 7};
     int n = sizeof(A)/sizeof(A[0]);
 
-    HEAP_SORT_ZMOD(A,n-1);
+    HEAP_SORT(A,n-1);
+    //HEAP_SORT_ZMOD(A,n-1);
     WYPISZ_TABLICE(A,n);
+
+    cout<<"przypisania:"<<przypisania<<endl;
+    cout<<"porównania:"<<porownania<<endl;
 
     return 0;
 }
