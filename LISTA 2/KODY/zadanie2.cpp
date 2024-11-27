@@ -26,7 +26,7 @@ int MIN(int A[], int n){
     }
     return min;
 }
-
+//CS bez d
 void COUNTING_SORT0(int A[], int B[], int k, int n){
     int C[k+1] = {0};
     for(int j = 0; j < n; j++){
@@ -69,7 +69,7 @@ void COUNTING_SORT(int A[], int B[], int n, int k, int d){
 void RADIX_SORT(int A[], int n, int d){
     int max = MAX(A,n);
     int B[n];
-    for(int k = 1; max/k > 0; k *= 10){
+    for(int k = 1; max/k > 0; k *= d){
         COUNTING_SORT(A,B,n,k,d);
     }
 }
@@ -80,7 +80,7 @@ void RADIX_SORT_ZMOD(int A[], int n, int d){
     if(min>=0){
         int max = MAX(A,n);
         int B[n];
-        for(int k = 1; max/k > 0; k*=10){
+        for(int k = 1; max/k > 0; k*=d){
             COUNTING_SORT(A,B,n,k,d);
         }
     }else{
@@ -89,7 +89,7 @@ void RADIX_SORT_ZMOD(int A[], int n, int d){
         }
         int max = MAX(A,n);
         int B[n];
-        for(int k = 1; max/k > 0; k*=10){
+        for(int k = 1; max/k > 0; k*=d){
             COUNTING_SORT(A,B,n,k,d);
         }
         for(int i = 0; i < n; i++){

@@ -142,7 +142,7 @@ void BUCKET_SORT(double A[], int n){
 void BUCKET_SORT_ZMOD(double A[], int n){
     double max = MAX(A,n);
     double min = MIN(A,n);
-    if(max = min){//wszystkie wartosci takie same - unikanie dzielenia przez 0
+    if(max == min){//wszystkie wartosci takie same - unikanie dzielenia przez 0
         return;
     }else if(0<min && max<=1){//czy wszystkie wartości są z (0,1]
         BUCKET_SORT(A,n); 
