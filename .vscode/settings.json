@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.erd": "json",
+        "*.vuerd": "json",
+        "*.py": "python",
+        "iostream": "cpp"
+    }
+}
